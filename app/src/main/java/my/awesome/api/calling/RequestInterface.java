@@ -12,6 +12,6 @@ public interface RequestInterface {
     Call<JSONResponse> getJSON();
 
 
- @GET("android/jsonandroid")
+    @GET("api/?key=8716055-bbf7ebb4e2fe4719229979ebe&q=yellow+flowers&image_type=photo&pretty=true")
     Call<JSONResponse> getJSON2();
 }

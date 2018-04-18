@@ -15,10 +15,10 @@ import java.util.ArrayList;
 
 public class DataAdapter2 extends RecyclerView.Adapter<DataAdapter2.ViewHolder> {
 
-    private ArrayList<AndroidVersion2> android;
+    private ArrayList<AndroidVersion2> android2;
 
-    public DataAdapter2(ArrayList<AndroidVersion2> android) {
-        this.android = android;
+    public DataAdapter2(ArrayList<AndroidVersion2> android2) {
+        this.android2 = android2;
     }
 
     @Override
@@ -29,18 +29,19 @@ public class DataAdapter2 extends RecyclerView.Adapter<DataAdapter2.ViewHolder> 
 
     @Override
     public void onBindViewHolder(DataAdapter2.ViewHolder holder, int position) {
-        holder.txt.setText(android.get(position).getWebformatHeight());
+        holder.txt.setText(android2.get(position).getWebformatWidth());
 
     }
 
     @Override
     public int getItemCount() {
-        return android.size();
+        return android2.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView txt;
-       private ImageView img;
+        private ImageView img;
+
 
         public ViewHolder(View itemView) {
             super(itemView);

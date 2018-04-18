@@ -6,12 +6,13 @@ package my.awesome.api.calling;
 
 public class JSONResponse {
     private AndroidVersion[] android;
-    private AndroidVersion2[] android2;
+   private AndroidVersion2[] android2;
 
 
     public AndroidVersion[] getAndroid() {
         return android;
     }
+
     public AndroidVersion2[] getAndroid2() {
         return android2;
     }

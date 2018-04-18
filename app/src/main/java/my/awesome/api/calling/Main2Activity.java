@@ -18,7 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Main2Activity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private ArrayList<AndroidVersion2> data;
+    private ArrayList<AndroidVersion2> data2;
     private DataAdapter2 adapter;
 
     @Override
@@ -39,18 +39,18 @@ public class Main2Activity extends AppCompatActivity {
 
     private void loadJSON() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://pixabay.com/api/?key=8716055-bbf7ebb4e2fe4719229979ebe&q=yellow+flowers&image_type=photo&pretty=true")
+                .baseUrl("https://pixabay.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         RequestInterface request = retrofit.create(RequestInterface.class);
-        Call<JSONResponse> call = request.getJSON();
+        Call<JSONResponse> call = request.getJSON2();
         call.enqueue(new Callback<JSONResponse>() {
             @Override
             public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
 
                 JSONResponse jsonResponse = response.body();
-                data = new ArrayList<>(Arrays.asList(jsonResponse.getAndroid2()));
-                adapter = new DataAdapter2(data);
+                data2 = new ArrayList<>(Arrays.asList(jsonResponse.getAndroid2()));
+                adapter = new DataAdapter2(data2);
                 recyclerView.setAdapter(adapter);
             }
 

@@ -7,20 +7,13 @@ package my.awesome.api.calling;
 public class AndroidVersion2 {
 
     private String largeImageURL;
-    private String webformatHeight;
+    private String webformatWidth;
 
-    public AndroidVersion2(String largeImageURL,String webformatHeight) {
+
+    public AndroidVersion2(String largeImageURL, String webformatWidth) {
         this.largeImageURL = largeImageURL;
-        this.webformatHeight=webformatHeight;
+        this.webformatWidth = webformatWidth;
 
-    }
-
-    public String getWebformatHeight() {
-        return webformatHeight;
-    }
-
-    public void setWebformatHeight(String webformatHeight) {
-        this.webformatHeight = webformatHeight;
     }
 
     public String getLargeImageURL() {
@@ -29,5 +22,13 @@ public class AndroidVersion2 {
 
     public void setLargeImageURL(String largeImageURL) {
         this.largeImageURL = largeImageURL;
+    }
+
+    public String getWebformatWidth() {
+        return webformatWidth;
+    }
+
+    public void setWebformatWidth(String webformatWidth) {
+        this.webformatWidth = webformatWidth;
     }
 }
