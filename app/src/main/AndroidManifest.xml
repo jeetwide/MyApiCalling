@@ -15,7 +15,7 @@
         <activity android:name="my.awesome.api.calling.MainActivity">
 
         </activity>
-        <activity android:name=".Main2Activity">
+        <activity android:name=".ActivityUI.Main2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

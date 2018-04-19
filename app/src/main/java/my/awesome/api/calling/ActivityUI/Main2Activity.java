@@ -1,4 +1,4 @@
-package my.awesome.api.calling;
+package my.awesome.api.calling.ActivityUI;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,13 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import my.awesome.api.calling.Adapter.DataAdapter2;
+import my.awesome.api.calling.JSONResponse;
+import my.awesome.api.calling.Model.Hits;
+import my.awesome.api.calling.Model.HitsList;
+import my.awesome.api.calling.R;
+import my.awesome.api.calling.RequestInterface;
+import my.awesome.api.calling.api.RetroClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -18,7 +25,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Main2Activity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private ArrayList<AndroidVersion2> data2;
+    private ArrayList<Hits> hitsArrayList;
     private DataAdapter2 adapter;
 
     @Override
@@ -38,24 +45,26 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     private void loadJSON() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://pixabay.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        RequestInterface request = retrofit.create(RequestInterface.class);
-        Call<JSONResponse> call = request.getJSON2();
-        call.enqueue(new Callback<JSONResponse>() {
-            @Override
-            public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
 
-                JSONResponse jsonResponse = response.body();
-                data2 = new ArrayList<>(Arrays.asList(jsonResponse.getAndroid2()));
-                adapter = new DataAdapter2(data2);
+        //Creating an object of our api interface
+      my.awesome.api.calling.api.RequestInterface api = RetroClient.getApiService();
+
+        /**
+         * Calling JSON
+         */
+        Call<HitsList> call = api.getMyJSON();
+
+        call.enqueue(new Callback<HitsList>(){
+
+            @Override
+            public void onResponse(Call<HitsList> call, Response<HitsList> response) {
+                hitsArrayList=response.body().getHits();
+                adapter= new DataAdapter2(hitsArrayList);
                 recyclerView.setAdapter(adapter);
             }
 
             @Override
-            public void onFailure(Call<JSONResponse> call, Throwable t) {
+            public void onFailure(Call<HitsList> call, Throwable t) {
                 Log.d("Error",t.getMessage());
             }
         });

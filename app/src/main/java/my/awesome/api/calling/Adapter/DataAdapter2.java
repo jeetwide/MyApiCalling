@@ -1,5 +1,6 @@
-package my.awesome.api.calling;
+package my.awesome.api.calling.Adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,16 +10,20 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import my.awesome.api.calling.Model.Hits;
+import my.awesome.api.calling.R;
+
 /**
  * Created by dd on 09.05.2017.
  */
 
 public class DataAdapter2 extends RecyclerView.Adapter<DataAdapter2.ViewHolder> {
 
-    private ArrayList<AndroidVersion2> android2;
+    private ArrayList<Hits> hitsArrayList;
 
-    public DataAdapter2(ArrayList<AndroidVersion2> android2) {
-        this.android2 = android2;
+
+    public DataAdapter2(ArrayList<Hits> hitsArrayList) {
+        this.hitsArrayList = hitsArrayList;
     }
 
     @Override
@@ -29,13 +34,13 @@ public class DataAdapter2 extends RecyclerView.Adapter<DataAdapter2.ViewHolder> 
 
     @Override
     public void onBindViewHolder(DataAdapter2.ViewHolder holder, int position) {
-        holder.txt.setText(android2.get(position).getWebformatWidth());
+        holder.txt.setText(hitsArrayList.get(position).getWebformatHeight());
 
     }
 
     @Override
     public int getItemCount() {
-        return android2.size();
+        return hitsArrayList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
