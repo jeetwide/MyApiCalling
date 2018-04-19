@@ -22,10 +22,11 @@ import my.awesome.api.calling.R;
 public class DataAdapter2 extends RecyclerView.Adapter<DataAdapter2.ViewHolder> {
 
     private ArrayList<Hits> hitsArrayList;
-        Context context;
+     Context context;
 
-    public DataAdapter2(ArrayList<Hits> hitsArrayList) {
+    public DataAdapter2(ArrayList<Hits> hitsArrayList,Context context) {
         this.hitsArrayList = hitsArrayList;
+        this.context = context;
     }
 
     @Override
@@ -36,7 +37,7 @@ public class DataAdapter2 extends RecyclerView.Adapter<DataAdapter2.ViewHolder> 
 
     @Override
     public void onBindViewHolder(DataAdapter2.ViewHolder holder, int position) {
-        holder.txt.setText(hitsArrayList.get(position).getWebformatHeight());
+
         Picasso.with(context).load(hitsArrayList.get(position).getLargeImageURL()).fit().centerCrop().into(holder.img);
 
     }
@@ -47,14 +48,14 @@ public class DataAdapter2 extends RecyclerView.Adapter<DataAdapter2.ViewHolder> 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView txt;
+
         private ImageView img;
 
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            txt = (TextView)itemView.findViewById(R.id.txt);
+
             img = (ImageView) itemView.findViewById(R.id.img);
 
 

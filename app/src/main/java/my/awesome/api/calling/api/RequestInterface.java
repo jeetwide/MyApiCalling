@@ -1,7 +1,6 @@
 package my.awesome.api.calling.api;
 
 import my.awesome.api.calling.Model.HitsList;
-import my.awesome.api.calling.JSONResponse;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
@@ -10,9 +9,6 @@ import retrofit2.http.GET;
  */
 
 public interface RequestInterface {
-    @GET("android/jsonandroid")
-    Call<JSONResponse> getJSON();
-
 
     @GET("/api/?key=8716055-bbf7ebb4e2fe4719229979ebe&q=yellow+flowers&image_type=photo&pretty=true")
     Call<HitsList> getMyJSON();

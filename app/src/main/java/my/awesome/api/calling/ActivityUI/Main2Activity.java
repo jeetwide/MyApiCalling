@@ -7,20 +7,15 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import my.awesome.api.calling.Adapter.DataAdapter2;
-import my.awesome.api.calling.JSONResponse;
 import my.awesome.api.calling.Model.Hits;
 import my.awesome.api.calling.Model.HitsList;
 import my.awesome.api.calling.R;
-import my.awesome.api.calling.RequestInterface;
 import my.awesome.api.calling.api.RetroClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -59,7 +54,7 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onResponse(Call<HitsList> call, Response<HitsList> response) {
                 hitsArrayList=response.body().getHits();
-                adapter= new DataAdapter2(hitsArrayList);
+                adapter= new DataAdapter2(hitsArrayList,Main2Activity.this);
                 recyclerView.setAdapter(adapter);
             }
 
